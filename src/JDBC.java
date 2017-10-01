@@ -13,8 +13,8 @@ public class JDBC {
 
             String cs = "jdbc:sqlserver://10.242.128.89:1433;"
                     + "database=LSDM;"
-                    + "user=cloader;"
-                    + "password=sw=jeth7bubuHa";
+                    + "user=username;"
+                    + "password=password";
             Connection c = null;
             try {
                 c = DriverManager.getConnection(cs);
@@ -23,6 +23,7 @@ public class JDBC {
                 ResultSet rs = st.getResultSet();
                 while (rs.next()) {
                     System.out.println(rs.getString(1));
+                    System.out.println(rs.getRow());
                 }
             }
             catch (Exception e) {
