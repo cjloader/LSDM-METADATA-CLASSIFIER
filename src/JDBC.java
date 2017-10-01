@@ -6,16 +6,20 @@ import com.microsoft.sqlserver.jdbc.*;
 
 public class JDBC {
       public static void main(String[] args) {
+
+        }
+
+        public void connect(String inputst){
+
             String cs = "jdbc:sqlserver://10.242.128.89:1433;"
                     + "database=LSDM;"
                     + "user=cloader;"
                     + "password=sw=jeth7bubuHa";
             Connection c = null;
-            String query = args[0];
             try {
                 c = DriverManager.getConnection(cs);
                 Statement st = c.createStatement();
-                st.execute(query);
+                st.execute(inputst);
                 ResultSet rs = st.getResultSet();
                 while (rs.next()) {
                     System.out.println(rs.getString(1));
