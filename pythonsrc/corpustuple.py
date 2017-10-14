@@ -66,7 +66,6 @@ class CorpusTuple():
                except Exception as err:
                   print("tried and failed to get length of %r:%s" % (col, err))
 
-      print("total len %d" % total)
       self.avglength = float(total) /  self.numnotnull
 
 
