@@ -1,0 +1,37 @@
+#!/usr/bin/perl -w
+
+#this script is not 100% secure (probably). it is just meant for convenience 
+
+$filename = "configure_env_vars";
+
+if(-e $filename){
+   die "'$filename' already exists. run with \$source $filename\n";
+}
+
+`touch $filename`;
+if(!(-e $filename)){
+   die "couldn't create '$filename'\n";
+}
+`chmod 0600 $filename` ;
+
+open(OUT, "> $filename" );
+
+print "Enter UID:";
+$uid = <STDIN>;
+chomp $uid;
+
+
+use Term::ReadKey;
+print "Type your password:";
+ReadMode('noecho'); # don't echo
+chomp(my $password = <STDIN>);
+ReadMode(0);        # back to normal
+print "\n";
+
+print OUT "export CORPUS_ID='$uid'\n";
+print OUT "export CORPUS_PW='$password'\n";
+print "\n>A new file '$filename' has been created, now run in bash: \$source $filename\n";
+print ">'$filename' has been added to the .gitignore file, so no worries about it being uploaded to the repo\n";
+print ">when running the python script, they will use the env vars that you set when you ran \$source $filename\n";
+print ">to avoid others from seeing the pw, you will have to make sure you close the shell after you are done,\n>and only run \$source $filename when you need to run the python scripts\n\n";
+close(OUT);
