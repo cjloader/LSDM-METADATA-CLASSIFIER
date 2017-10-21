@@ -2,6 +2,8 @@
 ######################
 *.pyc
 configure_env_vars
+cluster0.txt
+cluster1.txt
 
 # Compiled source #
 ###################

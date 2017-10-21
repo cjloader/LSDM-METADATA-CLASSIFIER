@@ -24,6 +24,7 @@ for row in rows:
    print("numdigits:%d" % x.numdigits  )
    print("avglength:%f" % x.avglength  )
    print("numnonnull:%d" % x.numnotnull  )
+   print("len of vars:%d" % len(vars(x)))
    print("")
       #print('row = %r' % (row[0]))
    #   for col in row:
